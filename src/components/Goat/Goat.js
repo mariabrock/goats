@@ -5,27 +5,27 @@ import goatShape from '../../helpers/propz/goatShape';
 
 class Goat extends React.Component {
     static propTypes = {
-        goat: goatShape.goatShape,
-        freeGoat: PropTypes.func,
-        useGoat: PropTypes.func,
+      goat: goatShape.goatShape,
+      freeGoat: PropTypes.func,
+      useGoat: PropTypes.func,
     }
 
     freeGoatEvent = (e) => {
-        const { freeGoat, goat } = this.props;
-        e.preventDefault();
-        freeGoat(goat.id);
+      const { freeGoat, goat } = this.props;
+      e.preventDefault();
+      freeGoat(goat.id);
     }
 
     useGoatEvent = (e) => {
-        const { useGoat, goat } = this.props;
-        e.preventDefault();
-        useGoat(goat.id);
+      const { useGoat, goat } = this.props;
+      e.preventDefault();
+      useGoat(goat.id);
     }
 
     render() {
-        const { goat } = this.props;
+      const { goat } = this.props;
 
-        return(
+      return (
         <div className="card col-3">
             <img src={goat.imgUrl} className="card-img-top" alt={goat.name}/>
             <div className="card-body">
@@ -33,14 +33,13 @@ class Goat extends React.Component {
                 <p className="card-text">{goat.age}</p>
                 <p className="card-text">{goat.description}</p>
                     {
-                    (goat.isBusy) ?
-                        (<button className="btn btn-success" onClick={this.freeGoatEvent}>Free Me</button>)
-                    :
-                        (<button className="btn btn-primary" onClick={this.useGoatEvent}>Use Me</button>)
+                    (goat.isBusy)
+                      ? (<button className="btn btn-success" onClick={this.freeGoatEvent}>Free Me</button>)
+                      : (<button className="btn btn-primary" onClick={this.useGoatEvent}>Use Me</button>)
                     }
         </div>
     </div>
-        );
+      );
     }
 }
 

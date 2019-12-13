@@ -6,13 +6,12 @@ import goatData from '../helpers/data/goatData';
 import GoatCorral from '../components/GoatCorral/GoatCorral';
 import AvailableGoats from '../components/AvailableGoats/AvailableGoats';
 
-class  App extends React.Component {
-
+class App extends React.Component {
   state = {
-    goats: []
+    goats: [],
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const goats = goatData.getGoats();
     this.setState({ goats });
   }
